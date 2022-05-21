@@ -91,5 +91,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(new Intent(this,register.class));
         }
     }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mAuth.addAuthStateListener(authStateListener);
+        FirebaseUser currentUser = mAuth.getCurrentUser();;
+
+    }
 
 }
